@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PropertyHub BD — Real Estate Marketplace</title>
+  <meta name="description" content="A Bangladesh real estate marketplace UI inspired by classified property websites." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="#"><span class="brand-mark">P</span><span>PropertyHub<span class="bd">BD</span></span></a>
+      <nav class="nav-links">
+        <a class="active" href="#properties">Properties</a>
+        <a href="#areas">Areas</a>
+        <a href="#agents">Agents</a>
+        <a href="#guides">Guides</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="lang">EN ▾</button>
+        <button class="login">Login</button>
+        <button class="post-btn" onclick="openPostModal()">＋ Post Property</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div>
+          <p class="eyebrow">BANGLADESH PROPERTY MARKETPLACE</p>
+          <h1>Find your next <span>property</span>.</h1>
+          <p class="hero-copy">Buy, sell or rent flats, houses, land and commercial spaces from one simple marketplace.</p>
+        </div>
+        <div class="hero-stat"><strong>16,000+</strong><span>property listings</span></div>
+      </div>
+      <div class="container search-panel">
+        <div class="search-tabs">
+          <button class="tab active" data-mode="buy">Buy</button>
+          <button class="tab" data-mode="rent">Rent</button>
+          <button class="tab" data-mode="land">Land</button>
+          <button class="tab" data-mode="commercial">Commercial</button>
+        </div>
+        <div class="search-grid">
+          <label><span>Location</span><select id="location"><option value="">All Bangladesh</option><option>Dhaka</option><option>Chattogram</option><option>Nilphamari</option><option>Rajshahi</option><option>Sylhet</option></select></label>
+          <label><span>Property type</span><select id="type"><option value="">Any type</option><option>Apartment</option><option>House</option><option>Land</option><option>Commercial</option></select></label>
+          <label><span>Min price</span><input id="minPrice" type="number" placeholder="৳ 0" /></label>
+          <label><span>Max price</span><input id="maxPrice" type="number" placeholder="৳ 5,00,00,000" /></label>
+          <button class="search-btn" onclick="filterProperties()">Search</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="container content" id="properties">
+      <aside class="filters">
+        <div class="filter-head"><h3>Filter results</h3><button onclick="resetFilters()">Reset</button></div>
+        <div class="filter-block"><h4>Property type</h4>
+          <label class="check"><input class="type-check" value="Apartment" type="checkbox"> Apartments <span>5,135</span></label>
+          <label class="check"><input class="type-check" value="House" type="checkbox"> Houses <span>1,250</span></label>
+          <label class="check"><input class="type-check" value="Land" type="checkbox"> Land & Plots <span>4,213</span></label>
+          <label class="check"><input class="type-check" value="Commercial" type="checkbox"> Commercial <span>3,024</span></label>
+        </div>
+        <div class="filter-block"><h4>Bedrooms</h4><div class="chips"><button>1</button><button>2</button><button>3</button><button>4+</button></div></div>
+        <div class="filter-block"><h4>Listing status</h4><label class="check"><input type="checkbox"> Verified only</label><label class="check"><input type="checkbox"> Featured</label></div>
+        <div class="tip"><strong>💡 Smart search</strong><p>Use location + budget to find properties faster.</p></div>
+      </aside>
+
+      <section class="results">
+        <div class="results-head"><div><h2>Property in Bangladesh</h2><p id="resultCount">20 results</p></div><select id="sort" onchange="sortProperties()"><option value="new">Newest first</option><option value="low">Price: Low to high</option><option value="high">Price: High to low</option></select></div>
+        <div class="listing-grid" id="listingGrid"></div>
+      </section>
+    </section>
+
+    <section class="container categories" id="areas">
+      <div class="section-title"><div><p class="eyebrow">EXPLORE</p><h2>Popular property categories</h2></div><a href="#properties">View all →</a></div>
+      <div class="category-grid">
+        <div class="category"><span>🏢</span><div><b>Flats for Sale</b><small>2,004+ listings</small></div></div>
+        <div class="category"><span>🏠</span><div><b>Houses for Rent</b><small>3,557+ listings</small></div></div>
+        <div class="category"><span>🌳</span><div><b>Land & Plots</b><small>4,213+ listings</small></div></div>
+        <div class="category"><span>🏬</span><div><b>Commercial Space</b><small>3,024+ listings</small></div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="guides"><div class="container footer"><div><a class="brand" href="#"><span class="brand-mark">P</span><span>PropertyHub<span class="bd">BD</span></span></a><p>Buy smarter. Sell faster. Find better property.</p></div><div><b>Marketplace</b><a href="#">Buy property</a><a href="#">Rent property</a><a href="#">Post property</a></div><div><b>Support</b><a href="#">Safety tips</a><a href="#">Help center</a><a href="#">Contact</a></div></div></footer>
+
+  <div class="modal" id="postModal"><div class="modal-card"><button class="close" onclick="closePostModal()">×</button><h2>Post your property</h2><p>Demo form — connect this to your backend later.</p><input placeholder="Property title"><input placeholder="Location"><input placeholder="Price"><select><option>Apartment</option><option>House</option><option>Land</option><option>Commercial</option></select><button class="search-btn">Continue</button></div></div>
+  <script src="script.js"></script>
+</body>
+</html>
