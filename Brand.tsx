@@ -1,0 +1,2 @@
+import {MapPinned} from "lucide-react";
+export function Brand(){return <div className="flex items-center gap-3"><div className="h-10 w-10 rounded-xl bg-brand text-white grid place-items-center"><MapPinned size={22}/></div><div><div className="font-extrabold text-lg">E-Vumi Seba</div><div className="text-[10px] text-slate-500">Private Land Service Assistance</div></div></div>}

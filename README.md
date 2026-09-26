@@ -1,25 +1,35 @@
-# PropertyHub BD — Real Estate Marketplace UI
+# E-Vumi Seba — MVP
 
-A responsive Bangladesh real-estate marketplace front-end inspired by common classified property portals. It is not an exact copy of Bikroy's branding, source code, or copyrighted assets.
+Bangla-first private land-service assistance platform.
+
+## Stack
+- Next.js + React + TypeScript
+- Tailwind CSS
+- Supabase Auth / PostgreSQL / RLS / Private Storage
+- Lucide icons
 
 ## Run locally
+1. Install Node.js 20+.
+2. `npm install`
+3. Copy `.env.example` to `.env.local`.
+4. Create a Supabase project.
+5. Run `supabase/schema.sql` in Supabase SQL Editor.
+6. Add Supabase URL + anon key to `.env.local`.
+7. `npm run dev`
 
-Just open `index.html` in a browser, or use VS Code Live Server.
+## Important
+This starter intentionally does not fake government APIs, payment success, approvals, land records or document issuance. Connect only legally authorized services.
 
-## GitHub Pages
+## MVP routes
+- `/` public homepage
+- `/services` service catalogue
+- `/services/namjari` service details
+- `/track` application tracking UI
+- `/login`, `/register`
+- `/dashboard` agent dashboard UI
 
-1. Create a GitHub repository.
-2. Upload `index.html`, `style.css`, `script.js` and `README.md`.
-3. Settings → Pages → Deploy from branch → `main` / root.
+## Next implementation
+Connect Supabase Auth, server-side role checks, application creation server actions, private storage signed URLs, payment gateway, invoice PDF, notifications, staff assignment and audit triggers.
 
-## Next development steps
-
-- Add Firebase/Supabase authentication.
-- Store property listings in a database.
-- Add image upload/storage.
-- Add seller dashboard.
-- Add admin moderation + verified badge.
-- Add Bangladesh division/district/upazila dependent filters.
-- Add Google Maps/OpenStreetMap location picker.
-- Add phone/WhatsApp inquiry.
-- Add paid featured listings and payment gateway.
+## Security
+Never expose `SUPABASE_SERVICE_ROLE_KEY` to the browser. Public tracking must verify Application ID + registered mobile and return only minimal non-sensitive fields.
